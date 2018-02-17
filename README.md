@@ -29,7 +29,8 @@ run by: `./mvnw clean test`
 
 ## Performance Testing - PT
 1. Pre Set UP, Java 8 or later.
-2. Download and install Apache JMeter 4.0
+2. Download and set up  Apache JMeter 4.0
+3. Start sin-currency application. (Note that the jmeter configuration is pointed to localhost:8080, if we have different server to run pt, the we need to change jmeter config file accordingly)
 3. Run Performance testing:
     1. `cd sin-currency`
     2. `rm -rf src/test/pt/output/*`
