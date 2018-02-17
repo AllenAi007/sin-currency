@@ -9,6 +9,17 @@ import com.fasterxml.jackson.databind.ser.std.NumberSerializers;
  */
 public class CurrencyRate extends CurrencyRateId{
 
+    public CurrencyRate(){}
+
+    public CurrencyRate(double rate) {
+        this.rate = rate;
+    }
+
+    public CurrencyRate(String date, String currency, double rate) {
+        super(date, currency);
+        this.rate = rate;
+    }
+
     private double rate;
 
     public double getRate() {

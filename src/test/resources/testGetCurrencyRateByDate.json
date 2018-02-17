@@ -1,0 +1,19 @@
+{
+  "header": {
+    "success": true,
+    "authToken": null
+  },
+  "payload": [
+    {
+      "date": "2017-01-01",
+      "currency": "SGD",
+      "rate": 0.72
+    },
+    {
+      "date": "2017-01-01",
+      "currency": "KWD",
+      "rate": 4.32
+    }
+  ],
+  "error": null
+}

@@ -1,6 +1,7 @@
 package com.ai.sin.currency.controller;
 
 import com.ai.sin.currency.model.CurrencyRate;
+import com.ai.sin.currency.model.SinCurrencyDto;
 import com.ai.sin.currency.service.CurrencyRateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,8 +31,8 @@ public class CurrencyRateController {
      * @return all the currency of that date
      */
     @GetMapping("/rates/{date}")
-    Set<CurrencyRate> getCurrencyRateByDate(@PathVariable String date) {
-        return this.currencyRateService.getCurrencyRateByDate(date);
+    SinCurrencyDto<Set<CurrencyRate>> getCurrencyRateByDate(@PathVariable String date) {
+        return SinCurrencyDto.success(this.currencyRateService.getCurrencyRateByDate(date));
     }
 
     /**
@@ -42,8 +43,8 @@ public class CurrencyRateController {
      * @return double - rate between the two currency
      */
     @GetMapping("/rates/{date}/against/{currency1}/{currency2}")
-    double getRateAgainst(@PathVariable String date, @PathVariable String currency1, @PathVariable String currency2) {
-       return this.currencyRateService.getRateAgainst(date, currency1, currency2);
+    SinCurrencyDto<Double> getRateAgainst(@PathVariable String date, @PathVariable String currency1, @PathVariable String currency2) {
+       return SinCurrencyDto.success(this.currencyRateService.getRateAgainst(date, currency1, currency2));
     }
 
     /**
@@ -54,8 +55,8 @@ public class CurrencyRateController {
      * @return double - rate
      */
     @GetMapping("/rates/{currency}/avg/{startDate}/{endDate}")
-    double getRateAvg(@PathVariable String currency, @PathVariable String startDate, @PathVariable String endDate) {
-        return this.currencyRateService.getRateAvg(startDate, endDate, currency);
+    SinCurrencyDto<Double> getRateAvg(@PathVariable String currency, @PathVariable String startDate, @PathVariable String endDate) {
+        return SinCurrencyDto.success(this.currencyRateService.getRateAvg(startDate, endDate, currency));
     }
 
 }

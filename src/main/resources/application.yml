@@ -8,6 +8,7 @@ rate:
   inbound: classpath:/rate/inbound/*.txt
   date:
     format: yyyy-MM-dd
+
 # default to dev
 spring:
   profiles:

@@ -110,12 +110,17 @@ public class CurrencyRateRepoImp implements CurrencyRateRepo {
 
     @Override
     public Set<CurrencyRate> getCurrencyRatesByDate(String date) {
+        // verify date format
+        Utils.parseDate(date, dateFormat);
         Set<CurrencyRate> result = new HashSet<>();
         currencyRates.forEach((k, v) -> {
             if(k.getDate().equals(date)) {
                 result.add(v);
             }
         });
+        if(result.isEmpty()) {
+            throw new NoRateFoundException("No rate found for date " + date);
+        }
         return result;
     }
 
