@@ -1,0 +1,54 @@
+logging:
+  level:
+    root: INFO
+    com.ai.sin: DEBUG
+    org.springframework: INFO
+  file: logs/app-sin.log
+rate:
+  inbound: classpath:/rate/inbound/*.txt
+  date:
+    format: yyyy-MM-dd
+# default to dev
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: dev
+logging:
+  level:
+    root: INFO
+    com.ai.sin: DEBUG
+    org.springframework: INFO
+
+---
+spring:
+  profiles: sit
+
+logging:
+  level:
+    root: INFO
+    com.ai.sin: DEBUG
+    org.springframework: INFO
+
+---
+spring:
+  profiles: uat
+
+logging:
+  level:
+    root: INFO
+    com.ai.sin: DEBUG
+    org.springframework: INFO
+
+---
+spring:
+  profiles: prod
+
+logging:
+  level:
+    root: WARN
+    com.ai.sin: INFO
+    org.springframework: WARN
+
