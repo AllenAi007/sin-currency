@@ -1,7 +1,9 @@
 # sin-currency currency rate service
 ## How To Run
-`./mvnw clean spring-boot:run`
-## How To Test, 
+1. `git clone https://github.com/AllenAi007/sin-currency.git`
+2. `cd sin-currency`
+3. `./mvnw clean spring-boot:run`
+## How To Test
 After start application, use curl or copy the url to into browser
 1. `curl http://localhost:8080/rates/2017-01-01 `
 {"header":{"success":true,"authToken":null},"payload":[{"date":"2017-01-01","currency":"GBP","rate":1.3},{"date":"2017-01-01","currency":"OMR","rate":2.6},{"date":"2017-01-01","currency":"KWD","rate":3.32},{"date":"2017-01-01","currency":"BHD","rate":2.65},{"date":"2017-01-01","currency":"EUR","rate":1.19},{"date":"2017-01-01","currency":"CHF","rate":1.04},{"date":"2017-01-01","currency":"SGD","rate":0.74}],"error":null}
