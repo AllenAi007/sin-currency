@@ -2,6 +2,7 @@ package com.ai.sin.currency.repo;
 
 import com.ai.sin.currency.model.CurrencyRate;
 import com.ai.sin.currency.model.CurrencyRateId;
+import com.ai.sin.currency.repo.imp.CurrencyRateRepoImp;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,6 +16,7 @@ import java.util.Map;
 import java.util.Set;
 
 import static org.junit.Assert.*;
+
 /**
  * Unit test for currency rate repository
  */
@@ -28,7 +30,7 @@ public class UTCurrencyRateRepo {
     private CurrencyRateRepo currencyRateRepo;
 
     @Before
-    public void before(){
+    public void before() {
         currencyRateRepo.load();
     }
 
@@ -69,6 +71,13 @@ public class UTCurrencyRateRepo {
         String currency = "GBP";
         double expectedValue = 1.31d; // 1.32 + 1.30 / 2
         assertEquals(currencyRateRepo.getRateAvg(startDate, endDate, currency), expectedValue, 0.01d);
+    }
+
+    @Test
+    public void testScheduledLoad() {
+        CurrencyRateRepoImp repoImp = (CurrencyRateRepoImp) this.currencyRateRepo;
+        Map<CurrencyRateId, CurrencyRate> rates = repoImp.scheduledLoadCurrency();
+        assertEquals(rates.size(), 14);
     }
 
 }

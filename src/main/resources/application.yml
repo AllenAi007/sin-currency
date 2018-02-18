@@ -5,10 +5,12 @@ logging:
     org.springframework: INFO
   file: logs/app-sin.log
 rate:
-  inbound: classpath:/rate/inbound/*.txt
+  inbound:
+    folder: classpath:/rate/inbound/
+    file:
+      suffix: .txt
   date:
     format: yyyy-MM-dd
-
 # default to dev
 spring:
   profiles:
@@ -30,7 +32,7 @@ spring:
 logging:
   level:
     root: INFO
-    com.ai.sin: DEBUG
+    com.ai.sin: INFO
     org.springframework: INFO
 
 ---
@@ -39,9 +41,9 @@ spring:
 
 logging:
   level:
-    root: INFO
-    com.ai.sin: DEBUG
-    org.springframework: INFO
+    root: WARN
+    com.ai.sin: INFO
+    org.springframework: WARN
 
 ---
 spring:
